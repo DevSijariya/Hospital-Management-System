@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="birthday_popup" model="ir.ui.view">
+            <field name="name">Happy Birthday</field>
+            <field name="model">birthday.wish</field>
+            <field name="arch" type="xml">
+                <form string="Birthday">
+                    <h1>Data Successfully Updated</h1>
+                    <footer>
+                        <button string="Discard" special="cancel" invisible="1"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

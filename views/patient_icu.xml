@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="patient_icu_info" model="ir.ui.view">
+            <field name="name">patient.icu.info</field>
+            <field name="model">patienticu.information</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="registration_id"/>
+                                <field name="admitted_date"/>
+                                <field name="discharged"/>
+                            </group>
+                            <group>
+                                <field name="admitted"/>
+                                <field name="duration"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page>
+                                <h1 style="font-size:30px; color:#71639e;margin-top:20px;">Mechanical Ventilator History</h1>
+                                <field name="ventilator"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="icu_action" model="ir.actions.act_window">
+            <field name="name">Icu Form</field>
+            <field name="res_model">patienticu.information</field>
+            <field name="view_mode">form</field>
+        </record>
+    </data>
+    <menuitem id="Patient_icu_info" name="Patient ICU Info" action="icu_action" parent="Patient_care_data" sequence="1"/>
+</odoo>

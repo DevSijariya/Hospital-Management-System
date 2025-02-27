@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="bed_shift_wizard" model="ir.ui.view">
+            <field name="name">Bed Transfer</field>
+            <field name="model">bedtransfer.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Bed Transfer Form">
+                    <h2>Bed Transfer</h2>
+                    <group>
+                        <field name="shift_from"/>
+                        <field name="shift_to"/>
+                        <field name="reason"/>
+                    </group>
+                    <footer>
+                      <button string="Discard" special="cancel"/>
+                        <button class="btn-primary"
+                            name="transfer_bed"
+                            type="object"
+                            string="Transfer Bed"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

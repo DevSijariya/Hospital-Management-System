@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?><odoo>
+    <record id="patient_list_button" model="ir.ui.view">
+        <field name="name">patient.new.button</field>
+        <field name="model">patients.description</field> 
+        <field name="inherit_id" ref="hospital_management_system.patient_list_view_data"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="attributes">
+                <attribute name="js_class">button_in_tree</attribute>           
+            </xpath>      
+        </field>   
+    </record>
+ <record id="view_order_form_button" model="ir.ui.view">
+        <field name="name">view.order.form.button</field>
+        <field name="model">patients.description</field>
+        <field name="inherit_id" ref="hospital_management_system.patient_form_view_data"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="js_class">button_in_form</attribute>
+            </xpath>
+        </field>
+</record>
+ <record id="view_order_kanban_button" model="ir.ui.view">
+        <field name="name">view.order.kanban.button</field>
+        <field name="model">patients.description</field>
+        <field name="inherit_id" ref="hospital_management_system.Patient_information_kanban_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="js_class">button_in_kanban</attribute>
+            </xpath>
+        </field>
+</record>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id = "email_send_patient" model = "mail.template">
+            <field name = "name">Patient: Report Send</field>
+            <field name = "model_id" ref = "hospital_management_system.model_patients_description"></field>
+            <field name = "email_from">sanskar@gmail.com</field>
+            <field name = "email_to">{{object.email_address}}</field>
+            <field name = "subject">Report {{object.name}}</field>
+            <field name = "body_html" type="html">
+                <div>
+                    <strong>Hello <t t-out="object.name"/></strong>
+                    <p>We inform you that your appointment is scheduled in the next week </p>
+                    <p>Please Come next week</p>
+                    <p>And take the medicines on time</p>
+                    <b>Medications</b>
+                    <table>
+                        <thead style="font-size: 15px;">
+                            <tr>
+                                <h6>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    
+                                </h6>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <t t-foreach="object.medicines_id" t-as="medicine">
+                                <tr style="font-size:10px; border-top:1px solid #555;">
+                                    <td><span t-esc="medicine.name" /></td>
+                                    <td><span t-esc="medicine.description" /></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <div class="footer">
+                        <p>Best Regards</p>
+                        <p><t t-out="object.doctor_id.name"/></p>
+                        <p>Hospital</p>
+                        <p> <t t-out="object.current_date"/></p>
+                    </div>
+
+                </div>
+            </field>
+        </record>
+    </data> 
+</odoo>

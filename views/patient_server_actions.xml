@@ -1,0 +1,56 @@
+<odoo>
+    <record id="check_common_record" model="ir.actions.server">
+    <field name="name">Copy mobile number to emergency number</field>
+    <field name="model_id" ref="hospital_management_system.model_patients_description"/>
+    <field name="binding_model_id" ref="hospital_management_system.model_patients_description"/>
+    <field name="binding_view_types">list</field>
+    <field name="state">code</field>
+    <field name="code">
+        action = records.action_copy_phone_to_mobile()
+    </field>
+</record>
+  <record id="send_mail_record" model="ir.actions.server">
+    <field name="name">Send mail</field>
+    <field name="model_id" ref="hospital_management_system.model_patients_description"/>
+    <field name="binding_model_id" ref="hospital_management_system.model_patients_description"/>
+    <field name="binding_view_types">list</field>
+    <field name="state">code</field>
+    <field name="code">
+        action = records.send_mail()
+    </field>
+</record>
+    <record id="download_appointment_record" model="ir.actions.server">
+        <field name="name">Download Appointment letter</field>
+        <field name="model_id" ref="hospital_management_system.model_appointment_data"/>
+        <field name="binding_model_id" ref="hospital_management_system.model_appointment_data"/>
+        <field name="binding_view_types">form</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.downlaod_appointment_letter()
+        </field>
+    </record>
+    <record id="create_shipment_record" model="ir.actions.server">
+        <field name="name">Create Shipment Record</field>
+        <field name="model_id" ref="hospital_management_system.model_medicines_description"/>
+        <field name="binding_model_id" ref="hospital_management_system.model_medicines_description"/>
+        <field name="binding_view_types">form</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.create_shipment()
+        </field>
+    </record>
+
+    <record id="transfer_patient_bed_record" model="ir.actions.server">
+        <field name="name">Bed Transfer</field>
+        <field name="model_id" ref="hospital_management_system.model_administrative_data"/>
+        <field name="binding_model_id" ref="hospital_management_system.model_administrative_data"/>
+        <field name="binding_view_types">form</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.bed_transfer()
+        </field>
+    </record>
+
+
+
+</odoo>

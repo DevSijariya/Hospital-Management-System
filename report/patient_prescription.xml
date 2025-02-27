@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <template id="prescription_report">
+       <t t-call="web.html_container" >
+           <t t-foreach="docs" t-as="data" >
+           <div class="page" style="justify-content:center;align-items:center;display:flex;">
+                <header>
+                    <h2>Hospital Management</h2>
+                    <hr/>
+                    <p>Hospital</p>
+                    <p>Malvia Nagar</p>
+                    <p>Jaipur</p>
+                    <p>Rjasthan</p>
+                    <p>India</p>
+                    <hr/>
+                </header>
+
+                <body>
+                    <div style="justify:content:center;align-items:center;display:flex;">
+                            <h2 style="margin-left:40%; margin-bottom:100px; margin-top:100px;">Prescription Report</h2>
+                        <div style="width:1000px;  margin-top:20px;">
+                            <p style="margin-left:50px;"><strong>Prescription ID: </strong><span t-field="data.prescription_id"/>
+                            <strong style="margin-left:400px;" >Prescribing Doctor: </strong><span t-field="data.prescribing_doctor"/>
+                            </p>
+                            
+                            <p style="margin-left:50px;"><strong>Prescription Date </strong><span t-field="data.prescription_date"/>
+                            <strong style="margin-left:350px;" >Patient Contact Information: </strong><span t-field="data.patient_id"/>
+                            </p>
+                        </div>
+                    </div>
+                    <p style="margin-left:50px;"> <strong>Prescription Details</strong></p>
+                    <t t-foreach="data.prescription_data" t-as="prescribed" >
+                        <p style="border-top:1px #555;margin-left:50px;"><strong>Qunatity</strong><span t-field="prescribed.quantity" style="margin-left:500px;margin-top:50px;margin-bottom:50px;"/></p>
+                        <p style="border-top:1px #555;margin-left:50px;"><strong>Medicament</strong><span t-field="prescribed.medicant" style="margin-left:470px;margin-top:50px;margin-bottom:50px;"/></p>
+                        <p style="border-top:1px #555;margin-left:50px;"><strong>Dose</strong><span t-field="prescribed.dose" style="margin-left:520px;margin-top:50px;margin-bottom:50px;"/></p>
+                        <p style="border-top:1px #555;margin-left:50px;"><strong>Frequency</strong><span t-field="prescribed.frequency" style="margin-left:480px;margin-top:50px;margin-bottom:50px;"/></p>
+                        <p style="border-top:1px #555;margin-left:50px;"><strong>Treatment Duration</strong><span t-field="prescribed.treatment_duration" style="margin-left:415px;margin-top:50px;margin-bottom:50px;"/></p>
+                        <p style="border-top:1px #555;margin-left:50px;"><strong>Treatment Period</strong><span t-field="prescribed.treatment_period" style="margin-left:430px;margin-top:50px;margin-bottom:50px;"/></p>
+                    </t>
+                </body>
+
+           </div>
+           </t>
+           
+        </t>
+    </template>
+</odoo>

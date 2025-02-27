@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="birthday_popup" model="ir.ui.view">
+            <field name="name">Open Invoice</field>
+            <field name="model">openinvoice.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Create Invoice">
+                    <h2>Do You Want To Create The Invoice ?</h2>
+                    <footer>
+                      <button string="Discard" special="cancel"/>
+                        <button class="btn-primary"
+                            name="open_invoice"
+                            type="object"
+                            string="Open Invoice"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="shipment" model="ir.ui.view">
+            <field name="name">Create Shipment</field>
+            <field name="model">shipment.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Create Invoice">
+                    <h2>Do You Want To Create The Prescription Shipment ?</h2>
+                    <footer>
+                      <button string="Discard" special="cancel"/>
+                        <button class="btn-primary"
+                            name="open_invoice"
+                            type="object"
+                            string="Open Invoice"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

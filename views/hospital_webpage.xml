@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="webpage"  name="hospital_manangement assets">    
+        <t>
+            <div style="widht:100%; margin:0px; padding:0px;">
+                <div class="container" style="width:101%; height:70px; background-color:#483D8B; color:white; font-size:20px; margin-top:-15px;margin-left:-13px; padding:0px; border:1px solid black;
+                 align-item:center; display:flex;">
+                    <div class="logo" style="width:40%; border:1px solid transparent;">
+                        <b> <p style="margin-left:30px; margin-top:15px;">Hospital Management System</p> </b>
+                    </div>
+                    <div class="links" style="width:58%; border:1px solid transparent; gap:50px; justify-content:center;align-items:center;display:flex;">
+                        <a href="/patientinformation/" style="color:white;font-size:18px;margin:50px" >Patient Info</a>
+                        <a href="/doctorinformation/" style="color:white;font-size:18px;margin:50px; ">Doctor Info</a>
+                    </div>
+                </div>
+                <div style="justify-content:center;align-items:center; display:flex; flex-direction:column;">
+                    <h1> Welcome to the hospital management system</h1>
+                    <p>Here you can check the patients and doctors information </p>
+                </div>
+                
+                </div>
+        </t>
+    </template>
+</odoo> 

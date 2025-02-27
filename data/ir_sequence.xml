@@ -1,0 +1,23 @@
+<odoo>
+    <record id="sale_invoice_seq" model="ir.sequence">
+        <field name="name">Sale Invoice Sequence</field>
+        <field name="code">appointment.registratin.id</field>
+        <field name="prefix">APT-</field>
+        <field name="padding">6</field>
+        <field name="company_id" eval="False"/>
+        </record>
+    <record id="patient_Reg_seq" model="ir.sequence">
+        <field name="name">Patient Registration</field>
+        <field name="code">patient.registratin.id</field>
+        <field name="prefix">INPAC-</field>
+        <field name="padding">6</field>
+        <field name="company_id" eval="False"/>
+    </record>    
+    <record id="patient_prescription_seq" model="ir.sequence">
+        <field name="name">Prescription Sequence</field>
+        <field name="code">patient.prescription.id</field>
+        <field name="prefix">PRES2025-</field>
+        <field name="padding">6</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

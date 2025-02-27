@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+        <record id="admin_list_view" model="ir.ui.view">
+            <field name="name">admin.list.view</field>
+            <field name="model">administrative.data</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="registration_code"/>
+                    <field name="patient_id"/>
+                    <field name="hospitalization_date"/>
+                    <field name="expected_discharge"/>  
+                    <field name="hospital_bed"/>
+                    <field name="admission_type"/>
+                    <field name="reason"/>
+                </list>
+            </field>
+        </record>
+        <record id="admin_form_view" model="ir.ui.view">
+            <field name="name">admin.form.view</field>
+            <field name="model">administrative.data</field>
+            <field name="arch" type="xml">
+                <form>
+                <header>
+                        <button name="button_in_progress" type="object" string="Confirm Registration" class="btn btn-primary" invisible="state != 'draft'"/>
+                        <button name="confirm_update" type="object" string="Patient Admission" class="btn btn-primary" invisible="state != 'in_progress'"/>
+                        <button name="button_in_draft" type="object" string="Cancel Registration" class="btn btn-primary" invisible="state != 'in_progress'"/>
+                        <button name="completed" type="object" string="Discharge Patient" class="btn btn-primary" invisible="state != 'ongoing'"/>
+                        <button name="bed_transfer" type="object" string="Bed Transfer" class="btn btn-primary"/>
+                       <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,ongoing,done,cancel"/>
+                   </header>
+                    <sheet>
+                        <h1 style="color:#71639e">Administrative Data</h1>
+                       <group>
+                            <group>
+                                <field name="registration_code"/>
+                                <field name="patient_id"/>
+                                <field name="hospital_bed"/>
+                                <field name="hospitalization_date"/>
+                                <field name="expected_discharge"/>  
+                            </group>
+                            <group>
+                                <field name="attending_physician"/>
+                                <field name="operating_physician"/>
+                                <field name="admission_type"/>
+                                <field name="reason"/>
+                            </group>
+                       </group>
+                       <group>
+                            <strong>Extra Info</strong>
+                            <field name="transfer_bed" readonly="1"/>
+                       </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_admin_form" model="ir.actions.act_window">
+            <field name="name">Administrative Data</field>
+            <field name="res_model">administrative.data</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+            <menuitem id="Patient_administration_view" name="Patient Hospitalization" action="action_admin_form" parent="Patient_Administration"/>
+</odoo>

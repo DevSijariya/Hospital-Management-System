@@ -1,0 +1,54 @@
+<odoo>
+    <template id="doctor_data_display" name="Doctor Details">    
+        <t t-call="website.layout">
+            <div>
+                <div class="container"><br /><center><h3>Doctor Information</h3> </center><br />
+                    <table class="table-striped table" >
+                        <thead style="font-size: 23px;">
+                            <tr>
+                                <h6>
+                                    <b><th>Name</th>
+                                    <th>Specialization</th>
+                                    <th>Mobile Number</th>
+                                    <th>Email Address</th>
+                                    </b>
+                                </h6>
+                            </tr>
+                        </thead>
+                        <tbody> 
+                            <t t-foreach="my_details" t-as="patient" >
+                                <tr>
+                                    <td><span t-esc="patient.name" /> </td>
+                                    <td><span t-esc="patient.specialization" /></td>
+                                    <td><span t-esc="patient.mobile_number" /></td>
+                                    <td><span t-esc="patient.email_address" /></td>
+                                    <td><a t-attf-href="/doctor/unlink/#{patient.id}" >Delete Data</a> </td>
+                               </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <a href="/doctor/information/create" class="btn btn-primary">Create New Record</a>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="doctor_form_view" name="Patient Details">    
+        <t t-call="website.layout">
+            <div>
+                <div class="container"><br /><center><h3>Doctor's Information Form</h3> </center><br />
+                    <form action="/doctor/information/submit" >
+                        <center style="display:flex; flex-direction:column; gap:20px;">
+                            <h5>Please Enter the Data</h5>
+                                <input id="name" type="text" placeholder="Name" name="name" required="1" />
+                                <input id="mobile_number" type="text" placeholder="mobile_number" name="mobile_number" required="1"/>
+                                <input id="email_address" type="email" placeholder="Email Address" name="email_address" required="1"/>
+                                <input id="address" type="text" placeholder="Permanent Address" name="address" required="1"/>
+                            <button type="submit" class="btn btn-primary" >Submit</button>
+                        </center>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

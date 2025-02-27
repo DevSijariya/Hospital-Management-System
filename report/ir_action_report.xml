@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+      <record id="action_report_patient_template" model="ir.actions.report">
+       <field name="name">Patient Card</field>
+       <field name="model">patients.description</field>
+       <field name="report_type">qweb-pdf</field>
+       <field name="report_name">hospital_management_system.report_patient_card</field>
+       <field name="report_file">hospital_management_system.report_patient_card</field>
+       <field name="print_report_name">'Patient %s' % (object.name)</field>
+       <field name="binding_model_id" ref="hospital_management_system.model_patients_description"/>
+       <field name="paperformat_id" ref="hospital_management_system.paperformat_patient" />
+       <field name="binding_type">report</field>
+   </record>
+    <record id="action_report_patient_appointment_template" model="ir.actions.report">
+       <field name="name">Patient Appointment</field>
+       <field name="model">appointment.data</field>
+       <field name="report_type">qweb-pdf</field>
+       <field name="report_name">hospital_management_system.appointment_report</field>
+       <field name="report_file">hospital_management_system.appointment_report</field>
+       <field name="print_report_name">'Patient Appointment %s' % (object.appointment_id)</field>
+       <field name="binding_model_id" ref="hospital_management_system.model_appointment_data"/>
+       <field name="paperformat_id" ref="hospital_management_system.paperformat_patient_appointment" />
+       <field name="binding_type">report</field>
+   </record>
+   <record id="action_report_patient_prescription_template" model="ir.actions.report">
+       <field name="name">Download Prescription</field>
+       <field name="model">medicines.description</field>
+       <field name="report_type">qweb-pdf</field>
+       <field name="report_name">hospital_management_system.prescription_report</field>
+       <field name="report_file">hospital_management_system.prescription_report</field>
+       <field name="print_report_name">'Patient Prescription %s' % (object.prescription_id)</field>
+       <field name="binding_model_id" ref="hospital_management_system.model_medicines_description"/>
+       <field name="paperformat_id" ref="hospital_management_system.paperformat_patient_appointment" />
+       <field name="binding_type">report</field>
+   </record>
+</odoo>

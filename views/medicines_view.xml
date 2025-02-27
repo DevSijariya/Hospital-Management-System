@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="medicine_list_view_data" model="ir.ui.view">
+            <field name="name">medicine.list.view.data</field>
+            <field name="model">medicines.description</field>
+            <field name="arch" type="xml">
+                <list>
+                      <field name="patient_id"/>
+                        <field name="prescription_date"/>
+                        <field name="pharmacy"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="medicine_form_view_data" model="ir.ui.view">
+            <field name="name">medicine.form.view.data</field>
+            <field name="model">medicines.description</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1 style="color:#71639e">Patient and Doctor Information</h1>
+                    <group>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="prescription_date"/>
+                            <field name="pharmacy"/>
+                        </group>
+                        <group>
+                            <field name="prescription_id"/>
+                            <field name="login_user"/>
+                            <field name="prescribing_doctor"/>
+                            <field name="invoice_insurance"/>
+                        </group>
+                    </group>
+                        <h1 style="color:#71639e">Prescription Detail</h1>
+                        <field name="prescription_data"/>
+                        <h1 style="color:#71639e">Notes</h1>
+
+                        <notebook>
+                            <page string="Notes">
+                                <field name="notes"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="medicine_action_id" model="ir.actions.act_window">
+            <field name="name">Medicines Data</field>
+            <field name="res_model">medicines.description</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+    </data>
+<menuitem id="Patient_prescription" name="Prescription" action="medicine_action_id" parent="Patient_Data" sequence="1"/>
+        
+</odoo>

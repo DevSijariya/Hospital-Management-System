@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="menu_item" model="website.menu">
+        <field name="name">Patient Information</field>
+        <field name="url">/patient/information</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="doctor_menu_item" model="website.menu">
+        <field name="name">Doctor Information</field>
+        <field name="url">/doctor/information</field>
+        <field name="sequence">20</field>
+    </record>
+    
+
+    <!-- CREATING HOMEPAGE -->
+    <template id="homepage_id" inherit_id="website.homepage" name="Home">
+        <data>
+            <xpath expr="//div[@id='wrap']" position="inside">
+                <div class="container mt32 mb64">
+                    <section>
+                        <div class="product_details">
+                            <center>
+                                <h1>Welcome to the Hospital Management System</h1><br/>
+                                <p> Here You can See the Patients and doctors informations</p>
+
+                            </center>
+                        </div>
+                        <br/>
+                    </section>
+                </div>
+            </xpath>
+        </data>
+    </template>
+    <!-- RENDERING THE PATIENT INFORMATION IN THE TABLE VIEW -->
+    <template id="patient_info" name="Patient Details">    
+            <t t-call="website.layout">
+                <div>
+                    <div class="container"><br /><center><h3>Patients Information</h3> </center><br />
+                        <table class="table-striped table" >
+                            <thead style="font-size: 23px;">
+                                <tr>
+                                    <h6>
+                                        <b><th>Name</th>
+                                        <th>Age</th>
+                                        <th>Mobile Number</th>
+                                        <th>Email Address</th>
+                                        </b>
+                                    </h6>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                <t t-foreach="my_details" t-as="patient" >
+                                    <tr>
+                                        <td><span t-esc="patient.name" /> </td>
+                                        <td><span t-esc="patient.age" /></td>
+                                        <td><span t-esc="patient.mobile_number" /></td>
+                                        <td><span t-esc="patient.email_address" /></td>
+                                        <td><a t-attf-href="/patient/information/id/#{patient.id}" >View Data</a> </td>
+                                        <td><a t-attf-href="/info/unlink/#{patient.id}" >Delete Data</a> </td>
+                                </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <a href="/patient/add/information/form" class="btn btn-primary">Create New Record</a>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+</odoo>

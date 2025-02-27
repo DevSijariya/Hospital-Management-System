@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="patient_list_view_data" model="ir.ui.view">
+            <field name="name">patient.list.view.data</field>
+            <field name="model">patients.description</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="display_name"/>
+                    <field name="gender"/>
+                    <field name="date_of_birth"/>
+                    <field name="primary_doctor"/>
+                    <field name="deceased"/>
+                    <!-- <button name="bday_wish" type="object" string="Birthday"/> -->
+                </list>
+            </field>
+        </record>
+
+        <record id="patient_form_view_data" model="ir.ui.view">
+            <field name="name">patient.form.view.data</field>
+            <field name="model">patients.description</field>
+            <field name="arch" type="xml">
+                <form >
+                <div style="display:flex; gap:10px; margin:10px;" >
+                 <button name="send_mail" type="object" string="Send Mail" class="btn btn-primary" col="2"/>
+                 <button name="download_Patient_Card" type="object" string="Patient Card" class="btn btn-primary" col="2"/>
+                </div>
+                    <sheet id="patient_sheet">
+                        <group style="display: flex;">
+                            <group style="color:white; margin-left:-40%;">
+                                <field name="image" widget="image" class="oe_avatar" />
+                            </group>
+                            <group>
+                                <h1><field name="display_name" style="font-size:30px; color:#71639e; margin-left:-85%;"/></h1>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="date_of_birth"/>
+                                <field name="maritial_status"/>
+                            
+                            </group>
+                            <group>
+                                <field name="gender"/>
+                                <field name="age"/>
+                                <field name="address"/>
+
+                            </group>
+                        </group>
+                        <h1 style="font-size:30px; color:#71639e;margin-top:20px;">Patient Critical Information</h1>
+                        <notebook>
+                            <page string="General Information">
+                            <notebook>
+                                <page string="Labtests">
+                                    <h1 style="font-size:30px; color:#71639e;margin-top:20px;">Patient General Information</h1>
+                                    <group>
+                                        <group>
+                                            <field name="blood_type"/>
+                                            <field name="ethnic_group"/>
+                                            <field name="insurance_company_name"/>
+                                        </group>
+                                        <group>
+                                            <field name="rh_value"/>
+                                            <field name="family"/>
+                                            <field name="recievable"/>
+                                            <field name="primary_doctor"/>
+                                        </group>
+                                    </group>
+                                    <h1 style="font-size:30px; color:#71639e;margin-top:20px;">Patient Extra Information</h1>
+                                    <group>
+                                        <field name="deceased"/>
+                                    </group>
+                                </page>
+                                <page string="Medications"></page>
+                                <page string="Vaccinations"></page>
+                            </notebook>
+                               
+                            </page>
+                            <page string="Disease"></page>
+                            <page string="Evaluations">
+                                <group>
+                                    <field name="bed_occupied"/>
+                                </group>
+                            </page>
+                            <page string="Surgeries"></page>
+                            <page string="Genetic Risk"></page>
+                            <page string="Socioeconomics"></page>
+                            <page string="Lifestyle"></page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+         <record id="Patient_information_kanban_view" model="ir.ui.view">
+			<field name="name">Patient.information.kanban.view</field>
+			<field name="model">patients.description</field>
+			<field name="arch" type="xml">
+				<kanban>
+					<templates>
+						<t t-name="card">
+                            <div  style="display: flex; align-items: center; gap:20px;">
+                                <div>
+                                    <field name="image" widget="image" options="{'size': [100, 100]}"/>
+                                </div>
+                                <group>
+                                    <strong><field name="name" class="fw-bold fs-5"/></strong><br/>
+                                    <strong>Disease : </strong> <field name="disease"/><br/>
+                                </group>
+                            </div>
+						</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>
+
+        <record id="patients_action_id" model="ir.actions.act_window">
+            <field name="name">Patients Data</field>
+            <field name="res_model">patients.description</field>
+            <field name="view_mode">list,form,kanban</field>
+        </record>      
+
+    </data>
+        <menuitem id="Hospitalid" name="Hospital Management" sequence="0"/>
+        <menuitem id="Patient_Data" name="Patients"  parent="Hospitalid"/>
+        <menuitem id="Patient_Data_list" name="Patients" action="patients_action_id" parent="Patient_Data"/>
+        <menuitem id="Patient_Families" name="Families" action="patients_action_id" parent="Patient_Data"/>
+        
+        
+        <menuitem id="Patient_Administration" name="Inpatient Administration"  parent="Hospitalid"/>
+
+
+        <menuitem id="Patient_care_data" name="Intensive Care" action="patients_action_id" parent="Patient_Administration"/>
+        <menuitem id="Patient_apache_info" name="APACHE II Score" action="patients_action_id" parent="Patient_care_data"/>
+        <menuitem id="Patient_ecg" name="ECG" action="patients_action_id" parent="Patient_care_data"/>
+        <menuitem id="Patient_gsc" name="GSC" action="patients_action_id" parent="Patient_care_data"/>
+
+        <menuitem id="Patient_Pediatrics" name="Pediatrics"  parent="Hospitalid"/>
+        <menuitem id="Patient_Pediatrics_Check" name="Pediatrics Symptomps Check"  parent="Patient_Pediatrics"/>
+        <menuitem id="Patient_newborn" name="New Born"  parent="Patient_Pediatrics"/>
+        
+        <menuitem id="Patient_laboratory" name="Laboratory" action="patients_action_id" parent="Hospitalid"/>
+        <menuitem id="Patient_laboratory_result" name="Lab Test Result" action="patients_action_id" parent="Patient_laboratory"/>
+        <menuitem id="Patient_laboratory_request" name="Lab Request" action="patients_action_id" parent="Patient_laboratory"/>
+        <menuitem id="Patient_laboratory_draft_request" name="Draft Lab Request" action="patients_action_id" parent="Patient_laboratory_request"/>
+        <menuitem id="Patient_laboratory_todays_draft_request" name="Today's Draft Request" action="patients_action_id" parent="Patient_laboratory_request"/>
+        
+
+</odoo>

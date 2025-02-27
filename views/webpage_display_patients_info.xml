@@ -1,0 +1,77 @@
+<odoo>
+    <template id="patient_information_display" name="Patient Details">    
+        <t t-call="website.layout">
+            <div >
+                <div ><br /><center><h1 style="color:#555;">Patients Information</h1> </center><br /><hr/>
+                    <h1 style="justify-content:center;align-items:center;display:flex;"><t t-esc="patient.name"/></h1>
+                    <group style="justify-content:center;align-items:center ;display:flex;">
+                        <group style="display:flex;">
+                        <div class="layout" style="display:flex; flex-direction:column; font-size:20px;margin:50px;;" >
+                            <strong>Age: </strong><br/> 
+                            <strong>Mobile Number: </strong> <br/>
+                            <strong>Email Address:</strong><br/>
+                            <strong>Address: </strong> <br/>
+                            <strong>Date Of Birth: </strong> <br/>
+                            <strong>Doctor Appoint: </strong> <br/>
+                        </div>
+                        <div style="font-size:20px; margin:50px;">
+                        <t t-esc="patient.age"/><br/>
+                        <t t-esc="patient.mobile_number"/><br/>
+                            <t t-esc="patient.email_address"/><br/>
+                            <t t-esc="patient.address"/><br/>
+                            <t t-esc="patient.date_of_birth"/><br/>
+                            <t t-esc="patient.doctor_id.name"/><br/>
+                        </div>
+                        </group>
+                        <img t-attf-src="data:image/*;base64,{{patient.image}}" style="width:150px;height:150px; margin-left:100px;"/>
+                    </group>
+                    <table style="justify-content:center;display:flex; flex-direction:column; margin-left:35%;" class= "table table-striped">
+                        <thead style="font-size: 20px;">
+                            <tr>
+                                <h6 style="text-align:start; align-items:start;justify-content:start; display:flex; gap:50px;">
+                                    <th >Name </th>
+                                    <th>Description </th>  
+                                </h6>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <t t-foreach="patient.medicines_id" t-as="medicine">
+                                <tr style="font-size:20px; border-top:1px solid #555;">
+                                    <td><span t-esc="medicine.name" /></td>
+                                    <td><span t-esc="medicine.description" /></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <a t-attf-href="/patient/add/information/form" style="margin-left:46%;margin-bottom:20px;" class="btn btn-primary">Update Information</a>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="patient_add_data_template" name="Patient Details Form">    
+        <t t-call="website.layout">
+            <div>
+                <div class="container"><br /><center><h3>Patients's Information Form</h3> </center><br />
+                    <form action="/patient/data/submit/form" >
+                        <center style="display:flex; flex-direction:column; gap:20px;">
+                            <h5>Please Enter the Data</h5>
+                                <input id="name" type="text" placeholder="Name" name="name" required="1" />
+                                <input id="mobile_number" type="text" placeholder="mobile_number" name="mobile_number" required="1"/>
+                                <input id="email_address" type="email" placeholder="Email Address" name="email_address" required="1"/>
+                                <input id="address" type="text" placeholder="Permanent Address" name="address" required="1"/>
+                                <input id="disease" type="text" placeholder="Disease" name="disease" required="1"/>
+                                <input id="date_of_birth" type="text" placeholder="yyyy-mm-dd" name="date_of_birth" required="1"/>
+                                <p>Medicines</p>
+                                <select id="medicine" name="medicine[]" multiple="multiple" class="form-control">        
+                                    <t t-foreach="medicines" t-as="med">                
+                                    <option t-att-value="med.id" t-esc="med.name"/></t>
+                                </select>  
+                            <button type="submit" class="btn btn-primary" >Submit</button>
+                        </center>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
