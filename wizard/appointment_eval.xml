@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="appointment_eval_wizard" model="ir.ui.view">
+            <field name="name">Appointment Evaluation as per doctor</field>
+            <field name="model">appintment.evaluation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                       <style>
+                            .modal-header .btn-close {
+                            display: none;
+                            }
+                       </style>
+                    </header>
+                    <group>
+                        <group>
+                            Name: <field name="name"/>
+                            Speciality :<field name="speciality"/>
+                            <group>
+                                <field name="start_date"/>
+                            </group>
+                            <group>
+                                <field name="end_date"/>
+                            </group>
+                        </group>
+                    </group>
+                    <footer>
+                      <button string="Discard" special="cancel"/>
+                        <button class="btn-primary"
+                            name="appoint_eval"
+                            type="object"
+                            string="Show"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="appointment_eval" model="ir.actions.act_window">
+            <field name="name">Appointment Eval</field>
+            <field name="res_model">appintment.evaluation</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="appointment_eval_wizard"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+    
+</odoo>

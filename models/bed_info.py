@@ -12,13 +12,7 @@ class BedInfo(models.Model):
 
     patient_id = fields.Many2one(comodel_name="patients.description")
     shiftdate = fields.Datetime("Date", default=fields.Datetime.now)
-    shift_from = fields.Selection([
-        ('Bed 1', 'Bed 1'), ('Bed 2', 'Bed 2'),
-        ('Bed 3', 'Bed 3'), ('Bed 4', 'Bed 4')
-    ])
-    shift_to = fields.Selection([
-        ('Bed 1', 'Bed 1'), ('Bed 2', 'Bed 2'),
-        ('Bed 3', 'Bed 3'), ('Bed 4', 'Bed 4')
-    ])
+    shift_bed_from_ = fields.Char("Bed Name")
+    shift_bed_to_ = fields.Char("Bed Name")
     shift_reason = fields.Char("Reason")
     admin_id = fields.Many2one("administrative.data")

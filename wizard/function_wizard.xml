@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="function_wizards_id" model="ir.ui.view">
+            <field name="name">Update Data</field>
+            <field name="model">openupdate.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Create Invoice">
+                    <group>
+                        <field name="model_ids"/>
+                    </group>
+                    <footer>
+                      <button string="Discard" special="cancel"/>
+                        <button class="btn-primary"
+                            name="update_data"
+                            type="object"
+                            string="Update Data"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

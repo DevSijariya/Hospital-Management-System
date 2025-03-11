@@ -33,6 +33,22 @@
                 </form>
             </field>
         </record>
+        <record id="labtest" model="ir.ui.view">
+            <field name="name">Create Lab Test</field>
+            <field name="model">openlabtest.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Create Invoice">
+                    <h2>Do You Want To Create Lab Test ?</h2>
+                    <footer>
+                      <button string="Discard" special="cancel"/>
+                        <button class="btn-primary"
+                            name="create_request"
+                            type="object"
+                            string="Create Lab Test Request"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
 
     </data>
 </odoo>

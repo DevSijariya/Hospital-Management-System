@@ -1,6 +1,12 @@
+"""
+    This File Contain the Lab Test Models
+"""
 from odoo import fields, models
 
 class LabTestModel(models.Model):
+    """
+    This Model Contains the Lab Test Models Fields and Methods
+    """
     _name="lab.test"
     _description="Contains the lab result of the patient"
 

@@ -8,8 +8,8 @@
                 <form string="Bed Transfer Form">
                     <h2>Bed Transfer</h2>
                     <group>
-                        <field name="shift_from"/>
-                        <field name="shift_to"/>
+                      
+                        <field name="shift_bed_to"/>
                         <field name="reason"/>
                     </group>
                     <footer>

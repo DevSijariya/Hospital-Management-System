@@ -1,17 +1,9 @@
-"""
-Doctor Class 
-"""
-import re
-from odoo import fields, models
+from odoo import fields,models
 from odoo.exceptions import ValidationError
+import re
 
-class DoctorData(models.Model):
-    """
-    Used to contain the doctors information
-    """
-    _name = "doctors.data"
-    _description = "Patients Data Contains"
-
+class InsuranceCompany(models.Model):
+    _name="insurance.company"
     name=fields.Char("Name",required=True)
     mobile_number=fields.Char("Mobile_number",required=True)
     email_address=fields.Char("Email Address",required=True)
@@ -29,12 +21,27 @@ class DoctorData(models.Model):
         valid_number = re.match(r'^[6-9][0-9]{9}$', str(vals['mobile_number']))
         if valid_number is None:
             raise ValidationError("Invalid Mobile Number Please Enter A Valid Number")
-        return super(DoctorData,self).create(vals)
+        return super(InsuranceCompany,self).create(vals)
+
+class Insurances(models.Model):
+    _name="patient.insurance"
+    _rec_name="number"
+    number=fields.Char("Number")
+    owner=fields.Char("Owner",required=True)
+    types=fields.Char('Insurace Type',required=True)
+    insuranceCompany=fields.Many2one('insurance.company',string="Insurance Company" , required=True)
+    categeory=fields.Char("Categeory")
+    start=fields.Datetime("Member Since",required=True)
+    end=fields.Datetime("Expiration Date",required=True)
 
 
-class PhysicainProffesionalInfo(models.Model):
-    _name="physician.proffesional.info"
-    name=fields.Many2one("doctors.data",string="Name",required=True)
-    physician_id=fields.Char("Id")
-    institution=fields.Many2one('healthcenter.building',string="Institution",required=True)
-    speciality=fields.Char("Speciality",required=True)
+# Genetic Risks
+
+class GeneticRisks(models.Model):
+    _name="genetic.risks"
+    name=fields.Char("Name",required=True)
+    official_name=fields.Char("Official Long Name",required=True)
+    affected_chromosomes=fields.Char("Affected Chromosomes",required=True)
+    dominance=fields.Char("Dominance")
+    location=fields.Char("Location Genes ID Information")
+    
