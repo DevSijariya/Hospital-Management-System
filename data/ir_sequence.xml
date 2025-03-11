@@ -20,4 +20,63 @@
         <field name="padding">6</field>
         <field name="company_id" eval="False"/>
     </record>
+    <record id="newborn_baby_seq" model="ir.sequence">
+        <field name="name">NewBorn Sequence</field>
+        <field name="code">newborn.baby.id</field>
+        <field name="prefix">New</field>
+        <field name="padding">3</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    <record id="draft_lab_test_seq" model="ir.sequence">
+        <field name="name">Draft Lab Test Sequence</field>
+        <field name="code">draft.request</field>
+        <field name="prefix">LABT</field>
+        <field name="padding">3</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    <record id="create_lab_test_seq" model="ir.sequence">
+        <field name="name">Create lab test Sequence</field>
+        <field name="code">create.request</field>
+        <field name="prefix">LABT</field>
+        <field name="padding">3</field>
+        <field name="number_next" eval="1"/>  <!-- Ensure start from 1 -->
+         <field name="number_increment" eval="1"/> 
+        <field name="company_id" eval="False"/>
+    </record>
+        <record id="create_medical_seq" model="ir.sequence">
+        <field name="name">Create Medical Sequence</field>
+        <field name="code">create.medical</field>
+        <field name="prefix">MEDSR</field>
+        <field name="padding">3</field>
+        <field name="number_next" eval="1"/>  <!-- Ensure start from 1 -->
+         <field name="number_increment" eval="1"/> 
+        <field name="company_id" eval="False"/>
+    </record>
+    <record id="disease_seq" model="ir.sequence">
+        <field name="name">Create Disease Sequence</field>
+        <field name="code">disease.id</field>
+        <field name="prefix">DIS</field>
+        <field name="padding">4</field>
+        <field name="number_next" eval="1"/>  <!-- Ensure start from 1 -->
+         <field name="number_increment" eval="1"/> 
+        <field name="company_id" eval="False"/>
+    </record>
+    <record id="pathology_seq" model="ir.sequence">
+        <field name="name">Create Pathology Sequence</field>
+        <field name="code">pathology.id</field>
+        <field name="prefix">LBG</field>
+        <field name="padding">4</field>
+        <field name="number_next" eval="1"/>  <!-- Ensure start from 1 -->
+         <field name="number_increment" eval="1"/> 
+        <field name="company_id" eval="False"/>
+    </record>
+        <record id="test_type_seq" model="ir.sequence">
+        <field name="name">Create Test Type Sequence</field>
+        <field name="code">test.id</field>
+        <field name="prefix">TEST</field>
+        <field name="padding">4</field>
+        <field name="number_next" eval="1"/>  <!-- Ensure start from 1 -->
+         <field name="number_increment" eval="1"/> 
+        <field name="company_id" eval="False"/>
+    </record>
 </odoo>

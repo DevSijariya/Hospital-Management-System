@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <template id="baby_report">
+       <t t-call="web.html_container" >
+           <t t-foreach="docs" t-as="data" >
+           <div class="page" style="justify-content:center;align-items:center;display:flex;">
+                <header>
+                    <h2>Hospital Management</h2>
+                    <hr/>
+                    <p>Hospital</p>
+                    <p>Malvia Nagar</p>
+                    <p>Jaipur</p>
+                    <p>Rjasthan</p>
+                    <p>India</p>
+                    <hr/>
+                </header>
+
+                <body>
+                    <div style="border:1px solid #555;height:200px;">
+                        <div>
+                            <br/>
+                            <strong style="margin:5px;">Newborn Id: <span t-field="data.newborn_id"/></strong>
+                        </div>
+                        <div style="margin-left:30%; border-left:1px solid black; margin-top:-40px;height:200px;"><br/>
+                            <strong style="margin:5px;">Name: </strong><span t-field="data.name"/><br/><br/>
+                            <strong style="margin:5px;">Mother: </strong><span t-field="data.mother"/><br/><br/>
+                            <strong style="margin:5px;">DOB: </strong><span t-field="data.date_of_birth"/><br/><br/>
+                        </div>
+                    </div>
+                    <div style="border:1px solid #555;height:200px;">
+                        <div><br/>
+                            <strong style="margin:5px;">Gender: <span t-field="data.gender"/></strong>
+                        </div>
+                        <div style="margin-left:30%; border-left:1px solid black; margin-top:-40px; height:200px;"><br/>
+                           <strong style="margin:5px;">Weight(gm): </strong> <span t-field="data.weight"/><br/><br/>
+                            <strong style="margin:5px;">Height (cm): </strong><span t-field="data.length"/><br/>
+                        </div>
+                    </div>
+                </body>
+
+           </div>
+           </t>
+           
+        </t>
+    </template>
+</odoo>

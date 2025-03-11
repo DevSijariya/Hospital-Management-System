@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="template.change.button.name"
+     t-inherit="web.SelectCreateDialog"
+     t-inherit-mode="extension">
+     <xpath expr="//button[hasclass('btn btn-primary o_create_button')]"    position="replace">
+        <t t-if="props.resModel == 'patients.description'">
+             <button class="btn btn-primary o_create_button" data-hotkey="c" t-on-click="createEditRecord">Add New</button>
+        </t>
+        <t t-else="">
+             <button class="btn btn-primary o_create_button" data-hotkey="c" t-on-click="createEditRecord">New</button>
+        </t>
+     </xpath>
+    </t>
+</templates>

@@ -33,4 +33,16 @@
        <field name="paperformat_id" ref="hospital_management_system.paperformat_patient_appointment" />
        <field name="binding_type">report</field>
    </record>
+   
+    <record id="action_report_baby_card_template" model="ir.actions.report">
+       <field name="name">Download Baby Card</field>
+       <field name="model">newborn.description</field>
+       <field name="report_type">qweb-pdf</field>
+       <field name="report_name">hospital_management_system.baby_report</field>
+       <field name="report_file">hospital_management_system.baby_report</field>
+       <field name="print_report_name">'Baby Card %s' % (object.newborn_id)</field>
+       <field name="binding_model_id" ref="hospital_management_system.model_newborn_description"/>
+       <field name="paperformat_id" ref="hospital_management_system.paperformat_patient_appointment" />
+       <field name="binding_type">report</field>
+   </record>
 </odoo>
