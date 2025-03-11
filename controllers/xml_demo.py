@@ -56,8 +56,6 @@ def update_info(name,email_address,mobile_number,date_of_birth):
     """
     try:
         id=models.execute_kw(db, uid, password, 'patients.description', 'search_read', [[["email_address","=",email_address]]], {'fields': ['id'], 'limit': 1})
-
-        # models.execute_kw(db, uid, password, 'patients.description', 'create', [[5], {'name': "Newer partner","mobile_number":"8761875974","email_address":"email@gmail.com","date_of_birth":"2025-01-01"}])
         models.execute_kw(db, uid, password, 'patients.description', 'write', [[id[0]['id']], {'name': name,"mobile_number":mobile_number,"email_address":email_address,"date_of_birth":date_of_birth}])
         print(f"Data Updated Successfully link with the {email_address}")
         print(models.execute_kw(db, uid, password, 'patients.description', 'name_search', []))
@@ -81,10 +79,3 @@ def create_new_record():
 
         except Exception as e:
             print(f"{e} exception occurs")
-
-
-# create_new_record()
-# update_info("cba","hello@gmail.com","9897979798","2000-04-01")
-# print(models.execute_kw(db, uid, password, 'patients.description', 'name_search', []))
-# fetch_patients_name()
-# fetch_full_data()

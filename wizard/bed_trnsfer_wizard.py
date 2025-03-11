@@ -27,14 +27,14 @@ class BedTransferWizard(models.TransientModel):
         return res
 
     def transfer_bed(self):
+        """ Create a new bed record and update patient model """
         self.shift_bed_=self.patient_id.bed_taken.name
         
-        """ Create a new bed record and update patient model """
         if not self.shift_bed_to:
             raise ValueError("Please select a bed to transfer.")
 
         # 1. Create a new record in bed.info
-        new_record = self.env['bed.info'].create({
+        self.env['bed.info'].create({
             'patient_id': self.patient_id.id,
             'shiftdate': fields.Datetime.now(),
             'shift_bed_from_': self.shift_bed_,
