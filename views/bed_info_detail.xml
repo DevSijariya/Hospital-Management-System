@@ -7,8 +7,8 @@
             <field name="arch" type="xml">
                 <list>
                     <field name="shiftdate"/>
-                    <field name="shift_from"/>
-                    <field name="shift_to"/>
+                    <field name="shift_bed_from_"/>
+                    <field name="shift_bed_to_"/>
                     <field name="shift_reason"/>
                 </list>
             </field>
@@ -20,8 +20,8 @@
                 <form>
                     <group>
                         <field name="shiftdate"/>
-                        <field name="shift_from"/>
-                        <field name="shift_to"/>
+                        <field name="shift_bed_from_"/>
+                        <field name="shift_bed_to_"/>
                         <field name="shift_reason"/>
                     </group>
                 
@@ -34,5 +34,5 @@
             <field name="view_mode">list,form</field>
         </record>
     </data>
-    <menuitem id="bed_list" name="Bed Info" action="action_bed_data" parent="Hospitalid"/>
+    <!-- <menuitem id="bed_list" name="Bed Info" action="action_bed_data" parent="Hospitalid"/> -->
 </odoo>

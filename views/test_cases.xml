@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="test_cases_list_view" model="ir.ui.view">
+            <field name="name">test.cases.list.view</field>
+            <field name="model">testcases.result</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="sequence"/>
+                    <field name="names"/>
+                    <field name="result"/>
+                    <field name="normal_range"/>
+                    <field name="units"/>
+                </list>
+            </field>
+        </record>
+        <record id="test_cases_form_view" model="ir.ui.view">
+            <field name="name">test.cases.form.view</field>
+            <field name="model">testcases.result</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                         <group>
+                            <field name="sequence"/>
+                            <field name="names"/>
+                            <field name="result"/>
+                            <field name="normal_range"/>
+                            <field name="units"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="testcases_action" model="ir.actions.act_window">
+            <field name="name">Lab Test Result</field>
+            <field name="res_model">testcases.result</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+    <menuitem id="Patient_laboratory_result" name="Lab Test Result" action="testcases_action" parent="Patient_laboratory"/>
+</odoo>

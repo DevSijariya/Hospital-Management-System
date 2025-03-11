@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="apgar_score" model="ir.ui.view">
+            <field name="name">apgar.score</field>
+            <field name="model">apgarscore.record</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="minutes"/>
+                    <field name="respiratory"/>
+                    <field name="activity"/>
+                    <field name="appeareance"/>
+                    <field name="pulse"/>
+                    <field name="apgar_score"/>
+                    <field name="grimace"/>
+                </list>
+            </field>
+        </record>
+        <record id="apgar_score_form" model="ir.ui.view">
+            <field name="name">apgar.score.form</field>
+            <field name="model">apgarscore.record</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="minutes"/>
+                                <field name="respiratory"/>
+                                <field name="activity"/>
+                                <field name="appeareance"/>
+                            </group>
+                            <group>
+                                <field name="pulse"/>
+                                <field name="apgar_score"/>
+                                <field name="grimace"/>
+                            </group>
+                        </group>
+       
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="apgar_score_action" model="ir.actions.act_window">
+            <field name="name">Apgar Score</field>
+            <field name="res_model">apgarscore.record</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+</odoo>

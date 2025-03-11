@@ -1,0 +1,50 @@
+<odoo>
+    <record id="bed_details" model="ir.ui.view">
+        <field name="name">Bed.details</field>
+        <field name="model">beddetails.information</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="ward"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_beddetail" model="ir.actions.act_window">
+        <field name="name">Bed Detail</field>
+        <field name="res_model">beddetails.information</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <menuitem id="health_center_list" name="Health Centers" parent="configuration_id"/>
+    <menuitem id="bed_create" name="Health Center Bed" action="action_beddetail" parent="health_center_list" sequence="5"/>
+
+     <record id="number_details" model="ir.ui.view">
+        <field name="name">number.list.view</field>
+        <field name="model">number.data</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="value"/>
+            </list>
+        </field>
+    </record>
+    <record id="number_details_form" model="ir.ui.view">
+        <field name="name">number.form.view</field>
+        <field name="model">number.data</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+                <group>
+                <field name="value"/>
+                </group>
+            </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_number" model="ir.actions.act_window">
+        <field name="name">Number Detail</field>
+        <field name="res_model">number.data</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <!-- <menuitem id="number_create" name="Number Create" action="action_number" parent="Hospitalid"/> -->
+</odoo>

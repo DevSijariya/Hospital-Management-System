@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="prediatic_data_list_view" model="ir.ui.view">
+            <field name="name">pediatric.list.view.data</field>
+            <field name="model">pedriatric.symptoms</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="patient_id"/> 
+                    <field name="date"/>
+                    <field name="health_professional"/>
+                    <field name="appointment_id"/>
+                    <field name="pcs_total"/>
+                </list>
+            </field>
+        </record>
+        <record id="prediatic_form_view_data" model="ir.ui.view">
+            <field name="name">pediatric.form.view</field>
+            <field name="model">pedriatric.symptoms</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                          <h1 style="color:#71639e;"><strong><field name="patient_id"/></strong> </h1>  <br/>
+                          <h2 style="color:#71639e;">General</h2>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="health_professional"/>
+                            </group>
+                            <group>
+                                <field name="appointment_id"/>
+                                <field name="pcs_total"/>
+                            </group>
+                        </group><br/>
+                        <group>
+                            <group>
+                                <h2 style="color:#71639e;">Checklists</h2>
+                                <field name="complain"/>
+                                <field name="spend_time"/>
+                                <field name="little_energy"/>
+                                <field name="fidgety"/>
+                                <field name="trouble_with_teacher"/>
+                                <field name="school_interest"/>
+                                <field name="act_as_drivern"/>
+                            </group>
+                            <group>
+                                <field name="grades_drop"/>
+                                <field name="is_down"/>
+                                <field name="visit_doctor"/>
+                                <field name="trouble_with_sleeping"/>
+                                <field name="worries"/>
+                                <field name="want_to_be"/>
+                                <field name="feels_bad"/>
+                                <field name="risks"/>
+                                <field name="hurts"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Remark">
+                                <field name="remark" placeholder="Any Remark"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="pedraitic_action" model="ir.actions.act_window">
+            <field name="name">Pedriatic Symptoms</field>
+            <field name="res_model">pedriatric.symptoms</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+    <menuitem id="Patient_Pediatrics_Check" name="Pediatrics Symptomps Check"  action="pedraitic_action" parent="Patient_Pediatrics" sequence="1"/>
+</odoo>

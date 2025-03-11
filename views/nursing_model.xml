@@ -1,0 +1,90 @@
+<odoo>
+    <data>
+        <record id="nursing_list_view" model="ir.ui.view">
+            <field name="name">nursing.list.view</field>
+            <field name="model">nursing.description</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="health_profession"/>
+                    <field name="base_condition"/>
+                    <field name="session"/>
+                    <field name="ordering_physician_name"/>
+                    <field name="patient"/>
+                    <field name="related_evaluation"/>
+                    <field name="start"/>
+                </list>
+            </field>
+        </record>
+        <record id="nursing_form_view" model="ir.ui.view">
+            <field name="name">nursing.form.view</field>
+            <field name="model">nursing.description</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="health_profession"/>
+                                <field name="base_condition"/>
+                                <field name="session"/>
+                            </group>
+                            <group>
+                                <field name="ordering_physician_name"/>
+                                <field name="patient"/>
+                                <field name="related_evaluation"/>
+                                <field name="start"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Main">
+                                <h1 style="color:#71639e;">Procedure</h1>
+                                <field name="procedure"/>
+                            </page>
+                            <page string="Other"></page>
+                            <page string="Medications"></page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_nursing_data" model="ir.actions.act_window">
+            <field name="name">Nursing</field>
+            <field name="res_model">nursing.description</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+
+
+        <record id="procedure_list_view" model="ir.ui.view">
+            <field name="name">procedure.list.view</field>
+            <field name="model">procedure.information</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="code"/>
+                   <field name="comment"/>
+                </list>
+            </field>
+        </record>
+        <record id="procedure_form_view" model="ir.ui.view">
+            <field name="name">procedure.form.view</field>
+            <field name="model">procedure.information</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                                <field name="comment"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+    <menuitem id="Nursing_info" name="Nursing" parent="Hospitalid"/>
+    <menuitem id="patient_amulatory_care" parent="Nursing_info" action="action_nursing_data"  name="Patient Ambulatory Care" />
+
+</odoo>

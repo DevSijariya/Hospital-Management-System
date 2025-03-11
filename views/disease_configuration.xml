@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+    <!-- Pathology -->
+        <record id="pathology_conf_list" model="ir.ui.view">
+            <field name="name">pathology.conf.list</field>
+            <field name="model">pathology.groups</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="description"/>
+                </list>
+            </field>
+        </record>
+        <record id="pathology_conf_form" model="ir.ui.view">
+            <field name="name">pathology.conf.form</field>
+            <field name="model">pathology.groups</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="pathology_conf_action" model="ir.actions.act_window">
+            <field name="name">pathology</field>
+            <field name="res_model">pathology.groups</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Disease -->
+        <record id="disease_conf_list" model="ir.ui.view">
+            <field name="name">disease.conf.list</field>
+            <field name="model">disease.groups</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="categeory"/>
+                </list>
+            </field>
+        </record>
+        <record id="disease_conf_form" model="ir.ui.view">
+            <field name="name">disase.conf.form</field>
+            <field name="model">disease.groups</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="categeory"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="disease_conf_action" model="ir.actions.act_window">
+            <field name="name">Disease</field>
+            <field name="res_model">disease.groups</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Disease Categeory -->
+        <record id="disease_conf_categeory_list" model="ir.ui.view">
+            <field name="name">disease.conf.categeory.list</field>
+            <field name="model">disease.categeory</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+        <record id="disease_conf_categeory_form" model="ir.ui.view">
+            <field name="name">disase.conf.categeory.form</field>
+            <field name="model">disease.categeory</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="disease_conf_categeory_action" model="ir.actions.act_window">
+            <field name="name">Disease Categeory</field>
+            <field name="res_model">disease.categeory</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+<!-- Medical Procedure -->
+        <record id="medical_procedure_list" model="ir.ui.view">
+            <field name="name">medical.procedure.list</field>
+            <field name="model">medical.procedure</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="description"/>
+                </list>
+            </field>
+        </record>
+        <record id="medical_procedure_form" model="ir.ui.view">
+            <field name="name">medical.procedure.form</field>
+            <field name="model">medical.procedure</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="medical_procedure_action" model="ir.actions.act_window">
+            <field name="name">Medical Procedure</field>
+            <field name="res_model">medical.procedure</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+    <menuitem id="Disease_conf" name="Disease" parent="laboratory_conf"/>
+    <menuitem id="pathology_action" name="Pathology Group" action="pathology_conf_action" parent="Disease_conf"/>
+    <menuitem id="disease_action" name="Diseases" action="disease_conf_action" parent="Disease_conf"/>
+    <menuitem id="disease_categeory" name="Disease Categeory" action="disease_conf_categeory_action" parent="Disease_conf"/>
+    <menuitem id="medical_procedure_parent" name="Medical procedure" parent="laboratory_conf"/>
+    <menuitem id="medical_procedure" name="Medical Procedure" action="medical_procedure_action" parent="medical_procedure_parent"/>
+</odoo>

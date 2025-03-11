@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+    <record id="lab_draft_request_list" model="ir.ui.view">
+        <field name="name">lab.draft.request.list</field>
+        <field name="model">draftlab.request</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="request"/>
+                <field name="test_typ"/>
+                <field name="date"/>
+                <field name="patient_id"/>
+                <field name="doctor"/>
+            </list>
+        </field>
+    </record>
+    <record id="lab_draft_request_form" model="ir.ui.view">
+        <field name="name">lab.draft.request.form</field>
+        <field name="model">draftlab.request</field>
+        <field name="arch" type="xml">
+            <form>
+                <div style="width:150px;">
+                    <button name="create_lab_test" type="object" string="Create Lab Test" class="btn btn-primary"/>
+                </div>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="test_typ"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="doctor"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="lab_draft_action" model="ir.actions.act_window">
+        <field name="name">Lab Draft Request</field>
+        <field name="res_model">draftlab.request</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="today_draft_request_list" model="ir.ui.view">
+        <field name="name">tadaylab.draft.request.list</field>
+        <field name="model">today.draftlab.request</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="request"/>
+                <field name="test_type"/>
+                <field name="date"/>
+                <field name="patient_id"/>
+                <field name="doctor"/>
+            </list>
+        </field>
+    </record>
+    <record id="tadylab_draft_request_form" model="ir.ui.view">
+        <field name="name">todaylab.draft.request.form</field>
+        <field name="model">today.draftlab.request</field>
+        <field name="arch" type="xml">
+            <form>
+                <div style="width:150px;">
+                </div>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="test_type"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="doctor"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="todaylab_draft_action" model="ir.actions.act_window">
+        <field name="name">Today Lab Draft Request</field>
+        <field name="res_model">today.draftlab.request</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    </data>
+    <menuitem id="Patient_laboratory_draft_request" name="Draft Lab Request" action="lab_draft_action" parent="Patient_laboratory_request"/>
+<menuitem id="Patient_laboratory_todays_draft_request" name="Today's Draft Request" action="todaylab_draft_action" parent="Patient_laboratory_request"/>
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="newborn_list_view_data" model="ir.ui.view">
+            <field name="name">newborn.list.view.data</field>
+            <field name="model">newborn.description</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="newborn_id" />
+                    <field name="name" />
+                    <field name="mother" />
+                    <field name="date_of_birth" />
+                    <field name="gender" />
+                    <field name="length" />
+                    <field name="weight" />
+                </list>
+            </field>
+    </record>
+    <record id="newborn_form_view_data" model="ir.ui.view">
+            <field name="name">newborn.form.view.data</field>
+            <field name="model">newborn.description</field>
+            <field name="arch" type="xml">
+                <form>
+                    <button name="downlaod_card" string="Download Patient Card" class="btn btn-primary col-2" type="object"/>
+                    <sheet id="newborn_sheet">
+                        <group style="display: flex;">
+                            <group style="color:white; margin-left:-40%;">
+                                <field name="image" widget="image" class="oe_avatar" />
+                            </group>
+                            <group>
+                                <h1><field name="newborn_id" style="font-size:30px; color:#71639e; margin-left:-85%;" readonly="1"/></h1>
+                            </group>
+                        </group>
+                        <h1 style="font-size:30px; color:#71639e;margin-top:20px;">Main</h1>
+                        <group>
+                            <field name="name"/>
+                            <field name="gender"/>
+                            <field name="discharged"/>
+                            <field name="weight"/>
+                            <field name="doctor"/>
+                            <field name="mother"/>
+                            <field name="date_of_birth"/>
+                            <field name="length"/>
+                            <field name="cephalic"/>
+                        </group>
+                        <h1 style="color:#71639e">Apgar Score</h1>
+                        <field name="apgar_score"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="newborn_action" model="ir.actions.act_window">
+            <field name="name">New Born Baby</field>
+            <field name="res_model">newborn.description</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <menuitem id="Patient_newborn" name="New Born" action="newborn_action" parent="Patient_Pediatrics" sequence="2"/>
+</odoo>

@@ -51,6 +51,27 @@
         </field>
     </record>
 
+    <record id="function_data_change" model="ir.actions.server">
+        <field name="name">Function Update </field>
+        <field name="model_id" ref="hospital_management_system.model_function_function"/>
+        <field name="binding_model_id" ref="hospital_management_system.model_function_function"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.update_data()
+        </field>
+    </record>
+
+    <record id="function_data_change_form" model="ir.actions.server">
+        <field name="name">Function Update </field>
+        <field name="model_id" ref="hospital_management_system.model_function_function"/>
+        <field name="binding_model_id" ref="hospital_management_system.model_function_function"/>
+        <field name="binding_view_types">form</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.update_data()
+        </field>
+    </record>
 
 
 </odoo>

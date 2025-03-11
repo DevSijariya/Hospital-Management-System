@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <list>
                     <field name="print_value"/>
-                    <field name="medicant"/>
+                    <field name="medicant_medicine"/>
                     <field name="indication"/>
                     <field name="dose"/>
                     <field name="dose_unit"/>
@@ -31,7 +31,7 @@
                     <group>
                         <group>
                             <field name="print_value"/>
-                            <field name="medicant"/>
+                            <field name="medicant_medicine"/>
                             <field name="indication"/>
                             <field name="dose"/>
                             <field name="dose_unit"/>

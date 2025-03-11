@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="lab_testing_list_view" model="ir.ui.view">
+            <field name="name">lab.testing.list.view</field>
+            <field name="model">labtesting.type</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="code"/>
+                </list>
+            </field>
+        </record>
+        <record id="lab_testing_form_view" model="ir.ui.view">
+            <field name="name">lab.testing.form.view</field>
+            <field name="model">labtesting.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="lab_testing_unit_list_view" model="ir.ui.view">
+            <field name="name">lab.testing.list.view</field>
+            <field name="model">labtesting.unit</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="code"/>
+                </list>
+            </field>
+        </record>
+        <record id="lab_testing_unit_form_view" model="ir.ui.view">
+            <field name="name">lab.testing.form.unit.view</field>
+            <field name="model">labtesting.unit</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="lab_testing_unit_action" model="ir.actions.act_window">
+            <field name="name">Lab Testing Unit</field>
+            <field name="res_model">labtesting.unit</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <record id="lab_testing_action" model="ir.actions.act_window">
+            <field name="name">Lab Testing Type</field>
+            <field name="res_model">labtesting.type</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+    <menuitem id="laboratory_conf" name="Laboratory"  parent="configuration_id"/>
+    <menuitem id="lab_testing_unit" name="Lab Testing Unit" action="lab_testing_unit_action" parent="laboratory_conf"/>
+    <menuitem id="lab_testing_type" name="Lab Testing Type" action="lab_testing_action" parent="laboratory_conf"/>
+</odoo>

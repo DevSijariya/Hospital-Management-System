@@ -24,7 +24,7 @@
                 <form >
                 <div style="display:flex; gap:10px; margin:10px;" >
                  <button name="send_mail" type="object" string="Send Mail" class="btn btn-primary" col="2"/>
-                 <button name="download_Patient_Card" type="object" string="Patient Card" class="btn btn-primary" col="2"/>
+                 <button name="download_patient_card" type="object" string="Patient Card" class="btn btn-primary" col="2"/>
                 </div>
                     <sheet id="patient_sheet">
                         <group style="display: flex;">
@@ -44,7 +44,7 @@
                             </group>
                             <group>
                                 <field name="gender"/>
-                                <field name="age"/>
+                                <field name="age" readonly="1"/>
                                 <field name="address"/>
 
                             </group>
@@ -73,21 +73,35 @@
                                         <field name="deceased"/>
                                     </group>
                                 </page>
-                                <page string="Medications"></page>
+                                <page string="Medications">
+                                    <field name="medicine_id"/>
+                                </page>
                                 <page string="Vaccinations"></page>
                             </notebook>
                                
                             </page>
-                            <page string="Disease"></page>
-                            <page string="Evaluations">
+                            <page string="Disease">
                                 <group>
-                                    <field name="bed_occupied"/>
+                                    <field name="disease"/>
+                                    <field name="description"/>
                                 </group>
                             </page>
-                            <page string="Surgeries"></page>
-                            <page string="Genetic Risk"></page>
+                            <page string="Evaluations">
+                                <group>
+                                    <field name="bed_taken"/>
+                                </group>
+                            </page>
+                            <page string="Surgeries">
+                                <field name="surgery"/>
+                            </page>
+                            <page string="Genetic Risk">
+                                <field name="genetic_risks"/>
+                            </page>
                             <page string="Socioeconomics"></page>
                             <page string="Lifestyle"></page>
+                            <page string="Appointment">
+                                <field name="appointment_id" readonly="1"/>
+                            </page>
                         </notebook>
 
                     </sheet>
@@ -122,30 +136,44 @@
             <field name="view_mode">list,form,kanban</field>
         </record>      
 
+
+        <record id="medical_invoice" model="ir.actions.act_window">
+            <field name="name">Medical Invoice</field>
+            <field name="res_model">account.move</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+
+
+
+
     </data>
         <menuitem id="Hospitalid" name="Hospital Management" sequence="0"/>
-        <menuitem id="Patient_Data" name="Patients"  parent="Hospitalid"/>
-        <menuitem id="Patient_Data_list" name="Patients" action="patients_action_id" parent="Patient_Data"/>
-        <menuitem id="Patient_Families" name="Families" action="patients_action_id" parent="Patient_Data"/>
+        <menuitem id="Patient_Data" name="Patients"  parent="Hospitalid" sequence="1"/>
+        <menuitem id="Patient_Data_list" name="Patients" action="patients_action_id" parent="Patient_Data" sequence="1"/>
+        <menuitem id="Patient_Families" name="Families" action="patients_action_id" parent="Patient_Data" sequence="2"/>
         
         
-        <menuitem id="Patient_Administration" name="Inpatient Administration"  parent="Hospitalid"/>
+        <menuitem id="Patient_Administration" name="Inpatient Administration"  parent="Hospitalid" sequence="2"/>
 
 
-        <menuitem id="Patient_care_data" name="Intensive Care" action="patients_action_id" parent="Patient_Administration"/>
-        <menuitem id="Patient_apache_info" name="APACHE II Score" action="patients_action_id" parent="Patient_care_data"/>
-        <menuitem id="Patient_ecg" name="ECG" action="patients_action_id" parent="Patient_care_data"/>
-        <menuitem id="Patient_gsc" name="GSC" action="patients_action_id" parent="Patient_care_data"/>
+        <menuitem id="Patient_care_data" name="Intensive Care" action="patients_action_id" parent="Patient_Administration" />
+        
+
+        
 
         <menuitem id="Patient_Pediatrics" name="Pediatrics"  parent="Hospitalid"/>
-        <menuitem id="Patient_Pediatrics_Check" name="Pediatrics Symptomps Check"  parent="Patient_Pediatrics"/>
-        <menuitem id="Patient_newborn" name="New Born"  parent="Patient_Pediatrics"/>
+        
+        
         
         <menuitem id="Patient_laboratory" name="Laboratory" action="patients_action_id" parent="Hospitalid"/>
-        <menuitem id="Patient_laboratory_result" name="Lab Test Result" action="patients_action_id" parent="Patient_laboratory"/>
-        <menuitem id="Patient_laboratory_request" name="Lab Request" action="patients_action_id" parent="Patient_laboratory"/>
-        <menuitem id="Patient_laboratory_draft_request" name="Draft Lab Request" action="patients_action_id" parent="Patient_laboratory_request"/>
-        <menuitem id="Patient_laboratory_todays_draft_request" name="Today's Draft Request" action="patients_action_id" parent="Patient_laboratory_request"/>
         
+        <menuitem id="Patient_laboratory_request" name="Lab Request" action="patients_action_id" parent="Patient_laboratory"/>
+    
+        <menuitem id="medical_service_invoice" name="invoice" action="medical_invoice" parent="Hospitalid"/>
+        
+        <menuitem id="appointment_eval_id" name="Appointment Evaluation As Per Doctor" action="appointment_eval" parent="Hospitalid"/>
+        <menuitem id="configuration_id" name="Configuration" parent="Hospitalid"/>        
+
 
 </odoo>

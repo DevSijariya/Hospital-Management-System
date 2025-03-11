@@ -1,0 +1,60 @@
+<odoo>
+    <data>
+        <record id="patient_evaluation_list_view" model="ir.ui.view">
+            <field name="name">patient.evaluation.list</field>
+            <field name="model">patient.evaluation</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="patient"/>
+                    <field name="start"/>
+                    <field name="complain"/>
+                    <field name="type_assign"/>
+                    <field name="end"/>
+                    <field name="doctor"/>
+                </list>
+            </field>
+        </record>
+         <record id="patient_evaluation_form_view" model="ir.ui.view">
+            <field name="name">patient.evaluation.form</field>
+            <field name="model">patient.evaluation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <notebook>
+                            <page string="Main Info">
+                                <group>
+                                    <group>
+                                        <field name="patient" type="many2one" model="patients.description"/>
+                                            <footer>
+                                                <button string="Cancel" special="cancel" />
+                                                <button string="Hello" name="action_confirm" />
+                                            </footer>
+                                        <field name="start"/>
+                                        <field name="complain"/>
+                                    </group>
+                                    <group>
+                                        <field name="type_assign"/>
+                                        <field name="end"/>
+                                        <field name="doctor"/>
+                                    </group>
+                                </group>
+                                <h1 style="color:#71639e;">Evaluation Summary</h1>
+                                <field name="summary"/>
+                            </page>
+                            <page string="Signs"></page>
+                            <page string="Symptoms"></page>
+                            <page string="Mental Status"></page>
+                            <page string="Diagnosis"></page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="patient_evaluation_action" model="ir.actions.act_window">
+            <field name="name">Patient Evaluation</field>
+            <field name="res_model">patient.evaluation</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+    <menuitem id="patient_eval_menu" name="Patient Evaluation" action="patient_evaluation_action" parent="medicant_list_data"/>
+</odoo>

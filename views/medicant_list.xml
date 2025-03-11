@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <record id="medicant_list_view" model="ir.ui.view">
+            <field name="name">medicant.list.view</field>
+            <field name="model">medicant.list</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="active_component"/>
+                    <field name="categeory_medicine"/>
+                    <field name="available"/>
+                    <field name="effect"/>
+                    <field name="pregnancy_warning"/>
+                    <field name="price"/>
+                </list>
+            </field>
+        </record>
+        <record id="medicant_form_view" model="ir.ui.view">
+            <field name="name">medicant.form.view</field>
+            <field name="model">medicant.list</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="active_component"/>
+                                <field name="categeory_medicine"/>
+                                <field name="available"/>
+                            </group>
+                            <group>
+                                <field name="effect"/>
+                                <field name="pregnancy_warning"/>
+                                <field name="price"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="medicant_action" model="ir.actions.act_window">
+            <field name="name">Medicant List</field>
+            <field name="res_model">medicant.list</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+    <menuitem id="medicant_list_data" name="Reporting" parent="Hospitalid"/>
+    <menuitem id="medicant_data" name="Medicament List" action="medicant_action" parent="medicant_list_data"/>
+    
+</odoo>

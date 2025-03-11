@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="meduicament_list" model="ir.ui.view">
+            <field name="name">medicament.list</field>
+            <field name="model">medicament.categeory</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+            <record id="meduicament_form" model="ir.ui.view">
+            <field name="name">medicament.form</field>
+            <field name="model">medicament.categeory</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_medicament" model="ir.actions.act_window">
+            <field name="name">Medicament Data</field>
+            <field name="res_model">medicament.categeory</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+    <menuitem id="medicament" name="Medicament" parent="configuration_id"/>
+    <menuitem id="medicament_list" name="Medicament Categeory" action="action_medicament" parent="medicament"/>
+
+    <menuitem id="miscs_data" name="Misc" parent="configuration_id"/>
+    <menuitem id="miscs_list" name="Medicaments" action="medicant_action" parent="miscs_data"/>
+
+</odoo>

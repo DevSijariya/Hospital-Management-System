@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+         <record id="medical_list_view" model="ir.ui.view">
+            <field name="name">medical.list.view</field>
+            <field name="model">medical.service</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="desription"/>
+                    <field name="patient"/>
+                    <field name="date"/>
+                </list>
+            </field>
+        </record>
+        <record id="medical_form_view" model="ir.ui.view">
+            <field name="name">medical.form.view</field>
+            <field name="model">medical.service</field>
+            <field name="arch" type="xml">
+                <form>
+                <header>
+                <button name="confirm_button" type="object" string="Confirm"/>
+                 <button name="create_invoice" type="object" string="Create Invoice" invisible="state != 'confirm'"/>
+                 <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <group>
+                                <field name="name"/>
+                                </group>
+                                <group>
+                                    <field name="desription"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="patient"/>
+                                </group>
+                                <group>
+                                    <field name="date"/>
+                                </group>
+                            </group>
+                          
+                        </group>
+                        <field name="product_ids"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_medical_service" model="ir.actions.act_window">
+            <field name="name">Medical Service</field>
+            <field name="res_model">medical.service</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+    <menuitem id="medical_service" name="Medical Service" parent="Hospitalid"/>
+    <menuitem id="medical_service_form" name="Medical Service" parent="medical_service" action="action_medical_service" />
+
+</odoo>

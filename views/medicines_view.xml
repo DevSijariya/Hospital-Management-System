@@ -28,7 +28,7 @@
                         </group>
                         <group>
                             <field name="prescription_id"/>
-                            <field name="login_user"/>
+                            <field name="login"/>
                             <field name="prescribing_doctor"/>
                             <field name="invoice_insurance"/>
                         </group>
@@ -54,6 +54,6 @@
         </record>
 
     </data>
-<menuitem id="Patient_prescription" name="Prescription" action="medicine_action_id" parent="Patient_Data" sequence="1"/>
+<menuitem id="Patient_prescription" name="Prescription" action="medicine_action_id" parent="Patient_Data" sequence="3"/>
         
 </odoo>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="apache_2_list" model="ir.ui.view">
+            <field name="name">apache.II.list</field>
+            <field name="model">apache2.score</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="registration_code"/>
+                    <field name="result_date"/>
+                    <field name="score"/>
+                </list>
+            </field>
+        </record>
+        <record id="apache_2_score" model="ir.ui.view">
+            <field name="name">apache.II.score</field>
+            <field name="model">apache2.score</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="registration_code"/>
+                                <field name="age" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="result_date"/>
+                            </group>
+                        </group>
+                        <h1 style="font-size:30px; color:#71639e;margin-top:20px;">Physiological</h1>
+                        <group>
+                            <group>
+                                <field name="temperature"/>
+                                <field name="heart_rate"/>
+                                <field name="fio2"/>
+                                <field name="paco2"/>
+                                <field name="ph_value"/>
+                                <field name="potassium"/>
+                                <field name="hemacocrait"/>
+                                <field name="arf"/>
+                            </group>
+                            <group>
+                                <field name="map"/>
+                                <field name="respiratory_rate"/>
+                                <field name="pao2"/>
+                                <field name="ado2"/>
+                                <field name="sodium"/>
+                                <field name="creatitine"/>
+                                <field name="wbc"/>
+                            </group>
+                        </group>
+                        <h1 style="font-size:30px; color:#71639e;margin-top:20px;">Chronic</h1>
+                        <group>
+                            <field name="chronic_condition"/>
+                            <field name="score"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="apache_action_form" model="ir.actions.act_window">
+            <field name="name">Apache Score</field>
+            <field name="res_model">apache2.score</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+    <menuitem id="Patient_apache_info" name="APACHE II Score" action="apache_action_form" parent="Patient_care_data"/>
+</odoo>
